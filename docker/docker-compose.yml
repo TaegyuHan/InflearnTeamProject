@@ -19,3 +19,13 @@ services:
     build: ./redis-chat
     ports:
       - "6380:6379"
+
+  # spring-boot
+  app:
+    build: ../
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - redis-alarm
+      - redis-chat

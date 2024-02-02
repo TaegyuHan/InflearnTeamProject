@@ -44,6 +44,14 @@ dependencies {
 	 * */
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 
+	/**
+	 * Oauth 2
+	 * 참고 : https://growth-coder.tistory.com/135
+	 * */
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security:spring-security-test'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j' // MySQL 드라이버
 	annotationProcessor 'org.projectlombok:lombok'
