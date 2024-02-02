@@ -1,7 +1,21 @@
 version: '3.8'
 
 services:
+
+  # DataBase
   mysql:
     build: ./MySQL
     ports:
       - "3306:3306"
+
+  # redis-alarm
+  redis-alarm:
+    build: ./redis-alarm
+    ports:
+      - "6379:6379"
+
+  #  redis-chat
+  redis-chat:
+    build: ./redis-chat
+    ports:
+      - "6380:6379"
