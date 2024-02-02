@@ -3,10 +3,15 @@ package com.example.demo;
 
 import com.example.demo.redis.AlarmRedisService;
 import com.example.demo.redis.ChatRedisService;
+import com.example.demo.socket.Greeting;
+import com.example.demo.socket.HelloMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.HtmlUtils;
 
 @RestController
 public class HelloController {
@@ -67,5 +72,14 @@ public class HelloController {
     ) {
         Object value = chatRedisService.getValue(key);
         return ResponseEntity.ok(value);
+    }
+
+    @MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    public Greeting greeting(
+            HelloMessage message
+    ) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
 }

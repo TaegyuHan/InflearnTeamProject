@@ -38,6 +38,12 @@ dependencies {
 	 * */
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
+	/**
+	 * WebSocket
+	 * 참고 : https://spring.io/guides/gs/messaging-stomp-websocket/#scratch
+	 * */
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j' // MySQL 드라이버
 	annotationProcessor 'org.projectlombok:lombok'
